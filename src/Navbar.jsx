@@ -5,7 +5,8 @@ import './Navbar.css';
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <Link to="/" className="logo">Siddhant 2K22/EE/263</Link>
+      <Link to="/" className="logo">Siddhant 2K22/E/263</Link>
+      
     
       <ul className="nav-links">
         <li><Link to="/about">About Me</Link></li>
