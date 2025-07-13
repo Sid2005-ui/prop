@@ -1,3 +1,4 @@
+
 body {
   font-size: 14px;
   box-sizing: border-box;
@@ -5,11 +6,13 @@ body {
   padding: 0;
   color: white;
   font-family: 'Arial', sans-serif;
+  background-color: #121212;
 }
 
 div {
   margin-bottom: 5px;
 }
+
 
 .container {
   display: flex;
@@ -19,21 +22,22 @@ div {
   min-height: 100vh;
   background: linear-gradient(135deg, #5b21b6 0%, #7c3aed 25%, #3b82f6 75%, #1e40af 100%);
   background-size: 400% 400%;
-  animation: gradientShift 8s ease-in-out infinite;
+  animation: gradientShift 8s ease-in-out infinite, fadeIn 1s ease-in-out forwards;
   padding: 20px;
+  opacity: 0;
 }
 
 @keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 
 h1 {
   color: white;
@@ -44,12 +48,10 @@ h1 {
   letter-spacing: 1px;
   transition: all 0.3s ease;
 }
-
 h1:hover {
   transform: scale(1.05);
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
-
 
 .project-item {
   margin-bottom: 25px;
@@ -61,13 +63,11 @@ h1:hover {
   border: 1px solid rgba(255, 255, 255, 0.2);
   transition: all 0.3s ease;
   min-width: 300px;
-  width: 100%;
-  max-width: 500px; /* Added max-width for better control */
+  max-width: 500px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
 .project-item:hover {
@@ -78,10 +78,9 @@ h1:hover {
 }
 
 .project-item h2 {
-  text-align: center;
-  margin-bottom: 15px;
   font-size: 1.8rem;
   color: white;
+  margin-bottom: 15px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   letter-spacing: 1px;
 }
@@ -90,7 +89,6 @@ h1:hover {
 .link-container {
   display: flex;
   justify-content: center;
-  align-items: center;
   width: 100%;
 }
 
@@ -103,11 +101,9 @@ h1:hover {
   background: rgba(255, 255, 255, 0.1);
   border: 2px solid rgba(255, 255, 255, 0.3);
   transition: all 0.3s ease;
-  display: inline-block;
   margin: 0 8px;
   position: relative;
-  overflow: hidden;
-  align-items: center;
+  display: inline-block;
 }
 
 .link::before {
@@ -126,10 +122,9 @@ h1:hover {
 }
 
 .link:hover {
-  color: #ffffff;
+  transform: scale(1.05);
   background: rgba(255, 255, 255, 0.2);
   border-color: rgba(255, 255, 255, 0.5);
-  transform: scale(1.05);
   box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
@@ -140,45 +135,10 @@ h1:hover {
 }
 
 
-.container {
-  opacity: 0;
-  animation: fadeIn 1s ease-in-out forwards, gradientShift 8s ease-in-out infinite;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (max-width: 600px) {
-  .container {
-    padding: 15px;
-  }
-  
-  h1 {
-    font-size: 2rem;
-  }
-  
-  .project-item {
-    min-width: 250px;
-    padding: 15px;
-  }
-  
-  .link {
-    padding: 6px 12px;
-    font-size: 14px;
-  }
-}
-
 .image {
   border-radius: 12px !important;
 }
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -208,4 +168,115 @@ h1:hover {
 
 .nav-links li a:hover {
   color: #1e90ff;
+}
+
+/* ===== About Page Section Styling ===== */
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.intro-section,
+.skills-section,
+.journey-section,
+.interests-section,
+.closing-section {
+  margin-bottom: 2rem;
+}
+
+.skill-category {
+  margin-bottom: 1.5rem;
+}
+.skill-category h3 {
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+.skill-category h3:hover {
+  color: #60a5fa;
+  text-shadow: 0 2px 6px rgba(96, 165, 250, 0.3);
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.skill-tag {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+.skill-tag:hover {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+  cursor: default;
+}
+
+.interests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.interest-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+.interest-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.interest-card h4 {
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+.interest-card h4::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: white;
+  transition: width 0.3s ease;
+}
+.interest-card h4:hover::after {
+  width: 100%;
+}
+
+.interest-card p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+
+@media (max-width: 600px) {
+  .container {
+    padding: 15px;}}
+    
+    
+    .highlight {
+  text-decoration: underline;
+  font-weight: 500;
+  color: #ffffff;
 }
